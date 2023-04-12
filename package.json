@@ -1,0 +1,41 @@
+{
+  "name": "@kittabit/shaggle-core",
+  "version": "1.0.0",
+  "description": "Agency plugin for Payload CMS",
+  "author": "Nicholas Mercer <kittabit@standarp.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "prepublishOnly": "pnpm build",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kittabit/shaggle-core.git"
+  },
+  "keywords": [
+    "payload",
+    "cms",
+    "plugin",
+    "typescript",
+    "agency"
+  ],
+  "bugs": {
+    "url": "https://github.com/kittabit/shaggle-core/issues"
+  },
+  "homepage": "https://shaggle.dev",
+  "peerDependencies": {
+    "payload": "^0.18.5 || ^1.0.0"
+  },
+  "devDependencies": {
+    "payload": "^1.0.9",
+    "typescript": "^4.5.5"
+  },
+  "files": [
+    "dist",
+    "*.js",
+    "*.d.ts",
+    "!.prettierrc.js"
+  ]
+}
