@@ -52,7 +52,9 @@ import shaggleCore from  '@kittabit/shaggle-core';
 
 const  config  =  buildConfig({
 	plugins: [	
-		shaggleCore,
+    	shaggleCore({
+      		disableCollections: ['golf-courses', 'properties'],
+    	}),
 	]
 });
 
@@ -61,7 +63,9 @@ export  default config;
 
 ### Options
 
-Coming Soon.
+#### `disableCollections`
+
+By default, all collections are enabled; versus enabling one-by-one, this will allow you to simply disable the non-applicable items for your build/client via an array.
 
 ## Roadmap / Upcoming Features (Very Soon)
 
@@ -74,6 +78,6 @@ Coming Soon.
 
 ## Known Bugs
 - FontAwesome Icon Missing (`features` Fields)
-- Ability to Disable Collections/Globals
+- Disable Settings for Non-Applicable/Activated Collections
 - User Roles Missing
 - Enable Preview's

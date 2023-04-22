@@ -1,4 +1,5 @@
 import { Config, Plugin } from 'payload/config';
+import { ShaggleConfig } from './types';
 
 // Collections
 import Attractions from './collections/Attractions';
@@ -15,21 +16,30 @@ import GlobalSettings from './globals/GlobalSettings';
 import Navigation from './globals/Navigation';
 import BookingEngineSettings from './globals/BookingEngine';
 
-const shaggleCore: Plugin = (incomingConfig: Config): Config => {
+const shaggleCore = (incomingShaggleConfig: ShaggleConfig) => (incomingConfig: Config): Config => {
+
+    const shagConfig: ShaggleConfig = {
+        ...incomingShaggleConfig,
+    };
+
+    const collections = [
+        ...incomingConfig?.collections || [],
+        Pages,
+        News,
+        Media,
+        Attractions,            
+        GolfCourses,
+        Properties,
+        Rooms,
+    ].filter(collection => {
+        return !shagConfig.disableCollections?.includes(collection.slug);
+    });
+
     const config: Config = {
         ...incomingConfig,
-        collections: [
-            ...incomingConfig?.collections || [],
-            Pages,
-            News,
-            Media,
-            Attractions,            
-            GolfCourses,
-            Properties,
-            Rooms,
-        ],
+        collections,
         globals: [
-            ...incomingConfig?.globals || [],            
+            ...incomingConfig?.globals || [],                        
             GlobalSettings,
             Navigation,
             BookingEngineSettings,
@@ -38,6 +48,7 @@ const shaggleCore: Plugin = (incomingConfig: Config): Config => {
     };
     
     return config;
+
 };
 
 export default shaggleCore;

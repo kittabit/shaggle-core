@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2023-04-22
+
+### Added
+
+- Ability to disable Collections from `payload.config.ts`
+
+### Fixed
+
+### Changed
+
 ## [1.1.0] - 2023-04-22
 
 ### Added
