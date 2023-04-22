@@ -1,12 +1,10 @@
 import { CollectionConfig } from 'payload/types';
 
-const Rooms: CollectionConfig = {
-	slug: 'rooms',
+const Properties: CollectionConfig = {
+	slug: 'properties',
     versions: true,
     admin: {
         useAsTitle: 'title',
-        description: "The rooms collection is used for single rooms available for booking at your property.",
-        defaultColumns: ['title', 'slug', 'status'],
     },
 	fields: [
 		{
@@ -45,7 +43,7 @@ const Rooms: CollectionConfig = {
                         },
                         {
                             name: 'features',
-                            label: "Room Features",
+                            label: "Property Features",
                             minRows: 0,
                             maxRows: 24,            
                             type: 'array',
@@ -121,6 +119,36 @@ const Rooms: CollectionConfig = {
                             ],
                         },
                         {
+                            name: 'contactInformation',
+                            label: "Contact Information",
+                            type: 'group',
+                            fields: [
+                                {
+                                    type: 'row',
+                                    fields: [
+                                        {
+                                            name: 'phoneNumber',
+                                            label: "Phone Number",
+                                            type: 'text',
+                                            required: false,
+                                            admin: {
+                                                width: "50%",
+                                            },                                     
+                                        },                  
+                                        {
+                                            name: 'websiteUrl',
+                                            label: "Website URL",
+                                            type: 'text',
+                                            required: false,
+                                            admin: {
+                                                width: "50%",
+                                            },                                     
+                                        },          
+                                    ],
+                                },
+                            ],
+                        },
+                        {
                             name: 'geoSpatialInformation',
                             label: "Geospatial",
                             type: 'group',
@@ -146,12 +174,12 @@ const Rooms: CollectionConfig = {
                     label: 'Photography', 
                     fields: [ 
                         {
-                            name: 'floorplan',
-                            label: "Floorplan",
+                            name: 'propertyLogo',
+                            label: "Property Logo",
                             type: 'upload',
                             relationTo: 'media',
                             required: false,
-                        },
+                        }, 
                         {
                             name: 'smallThumbnail',
                             label: "Small Thumbail",
@@ -220,7 +248,7 @@ const Rooms: CollectionConfig = {
                     ],
                 },
             ],
-        },  
+        },
         {
 			name: 'slug',
 			type: 'text',
@@ -265,8 +293,8 @@ const Rooms: CollectionConfig = {
 			admin: {
 			  position: 'sidebar',
 			}
-		},
+		},  
 	]
 };
 
-export default Rooms;
+export default Properties;

@@ -2,6 +2,7 @@ import { CollectionConfig } from 'payload/types';
 
 const Pages: CollectionConfig = {
 	slug: 'pages',
+	versions: true,
 	admin: {
 		defaultColumns: ['title', 'author', 'status'],
 		useAsTitle: 'title',

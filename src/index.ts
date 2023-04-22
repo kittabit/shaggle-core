@@ -6,6 +6,8 @@ import Media from './collections/Media';
 import News from './collections/News';
 import Pages from './collections/Pages';
 import Rooms from './collections/Rooms';
+import GolfCourses from './collections/GolfCourses';
+import Properties from './collections/Properties';
 
 // Globals
 import DeveloperSettings from './globals/DeveloperSettings';
@@ -22,6 +24,8 @@ const shaggleCore: Plugin = (incomingConfig: Config): Config => {
             News,
             Media,
             Attractions,            
+            GolfCourses,
+            Properties,
             Rooms,
         ],
         globals: [

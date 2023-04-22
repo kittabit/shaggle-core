@@ -2,6 +2,7 @@ import { CollectionConfig } from 'payload/types';
 
 const Attractions: CollectionConfig = {
 	slug: 'attractions',
+	versions: true,
 	fields: [
 		{
 			name: 'title',

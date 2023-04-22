@@ -2,6 +2,7 @@ import { CollectionConfig } from 'payload/types';
 
 const News: CollectionConfig = {
 	slug: 'news',
+	versions: true,
 	admin: {
 		defaultColumns: ['title', 'author', 'status'],
 		useAsTitle: 'title',

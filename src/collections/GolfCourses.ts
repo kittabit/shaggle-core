@@ -1,19 +1,17 @@
 import { CollectionConfig } from 'payload/types';
 
-const Rooms: CollectionConfig = {
-	slug: 'rooms',
+const GolfCourses: CollectionConfig = {
+	slug: 'golf-courses',
     versions: true,
     admin: {
         useAsTitle: 'title',
-        description: "The rooms collection is used for single rooms available for booking at your property.",
-        defaultColumns: ['title', 'slug', 'status'],
     },
 	fields: [
 		{
 			name: 'title',
 			type: 'text',            
 			required: true,
-		},
+		}, 
         {
             type: 'tabs',
             tabs: [
@@ -44,8 +42,137 @@ const Rooms: CollectionConfig = {
                             required: false,
                         },
                         {
+                            name: 'courseDetails',
+                            label: "Course Details",
+                            type: 'group',
+                            fields: [ 
+                                {
+                                    type: 'row',
+                                    fields: [
+                                        {
+                                            name: 'priceRangeMin',
+                                            label: "Price Range Minimum", 
+                                            type: 'number',
+                                            required: false,
+                                            admin: {
+                                                step: 1,
+                                                width: "50%",
+                                            }
+                                        },
+                                        {
+                                            name: 'priceRangeMin',
+                                            label: "Price Range Maximum", 
+                                            type: 'number',
+                                            required: false,
+                                            admin: {
+                                                step: 1,
+                                                width: "50%",
+                                            }
+                                        },
+                                        {
+                                            name: 'par',
+                                            label: "Par", 
+                                            type: 'text',
+                                            required: false,
+                                            admin: {
+                                                width: "33%",
+                                            }
+                                        },
+                                        {
+                                            name: 'slope',
+                                            label: "Slope", 
+                                            type: 'text',
+                                            required: false,
+                                            admin: {
+                                                width: "33%",
+                                            }
+                                        },
+                                        {
+                                            name: 'yardage',
+                                            label: "Yardage", 
+                                            type: 'text',
+                                            required: false,
+                                            admin: {
+                                                width: "33%",
+                                            }
+                                        },
+                                        {
+                                            name: 'kidsPlayFree',
+                                            type: 'checkbox',
+                                            label: 'Kids Play Free',
+                                            defaultValue: false,
+                                            admin: {
+                                                width: "50%",
+                                            }
+                                        },
+                                        {
+                                            name: 'acceptSingles',
+                                            type: 'checkbox',
+                                            label: 'Accept Singles',
+                                            defaultValue: false,
+                                            admin: {
+                                                width: "50%",
+                                            }
+                                        },
+                                    ],
+                                },
+                            ],
+                        },  
+                        {
+                            name: 'courseRates',
+                            label: "Course Rates",
+                            type: 'group',
+                            fields: [ 
+                                {
+                                    type: 'row',
+                                    fields: [
+                                        {
+                                            name: 'rateEarlyAm',
+                                            label: "Early AM Rate", 
+                                            type: 'number',
+                                            required: false,
+                                            admin: {
+                                                step: 1,
+                                                width: "50%",
+                                            }
+                                        },
+                                        {
+                                            name: 'rateAm',
+                                            label: "AM Rate", 
+                                            type: 'number',
+                                            required: false,
+                                            admin: {
+                                                step: 1,
+                                                width: "50%",
+                                            }
+                                        },
+                                        {
+                                            name: 'ratePm',
+                                            label: "PM Rate", 
+                                            type: 'number',
+                                            required: false,
+                                            admin: {
+                                                step: 1,
+                                                width: "50%",
+                                            }
+                                        },
+                                        {
+                                            name: 'rateLatePm',
+                                            label: "Late PM Rate", 
+                                            type: 'number',
+                                            required: false,
+                                            admin: {
+                                                step: 1,
+                                                width: "50%",
+                                            }
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        {
                             name: 'features',
-                            label: "Room Features",
+                            label: "Course Features",
                             minRows: 0,
                             maxRows: 24,            
                             type: 'array',
@@ -146,13 +273,6 @@ const Rooms: CollectionConfig = {
                     label: 'Photography', 
                     fields: [ 
                         {
-                            name: 'floorplan',
-                            label: "Floorplan",
-                            type: 'upload',
-                            relationTo: 'media',
-                            required: false,
-                        },
-                        {
                             name: 'smallThumbnail',
                             label: "Small Thumbail",
                             type: 'upload',
@@ -162,6 +282,13 @@ const Rooms: CollectionConfig = {
                         {
                             name: 'largeThumbnail',
                             label: "Large Thumbail",
+                            type: 'upload',
+                            relationTo: 'media',
+                            required: false,
+                        },  
+                        {
+                            name: 'courseLogo',
+                            label: "Course Logo",
                             type: 'upload',
                             relationTo: 'media',
                             required: false,
@@ -189,6 +316,15 @@ const Rooms: CollectionConfig = {
                                 },
                             ],
                         }, 
+                        {
+                            name: 'videoEmbed',
+                            label: "Video Embed Code",
+                            type: 'code',
+                            required: false,
+                            admin: {
+                              language: 'html'
+                            }
+                        }
                     ],
                 }, 
                 {
@@ -208,7 +344,7 @@ const Rooms: CollectionConfig = {
                                 },                  
                                 {
                                     name: 'bookingId',
-                                    label: "Booking ID",
+                                    label: "Course ID",
                                     type: 'text',
                                     required: false,
                                     admin: {
@@ -220,7 +356,7 @@ const Rooms: CollectionConfig = {
                     ],
                 },
             ],
-        },  
+        },
         {
 			name: 'slug',
 			type: 'text',
@@ -265,8 +401,8 @@ const Rooms: CollectionConfig = {
 			admin: {
 			  position: 'sidebar',
 			}
-		},
+		},  
 	]
 };
 
-export default Rooms;
+export default GolfCourses;

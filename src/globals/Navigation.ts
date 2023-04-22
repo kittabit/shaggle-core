@@ -36,6 +36,56 @@ const Navigation: GlobalConfig = {
                       type: "text",
                       required: true,
                     },  
+                    {
+                      name: 'subNavEnabled',
+                      type: 'checkbox',
+                      label: 'Enable Sub Navigation',
+                      defaultValue: false,
+                    },   
+                    {
+                      type: 'row',
+                      fields: [
+                        {
+                          name: "subNav",
+                          label: "Secondary Navigation",
+                          type: "array",
+                          required: false,
+                          maxRows: 32,
+                          labels: {
+                            singular: 'Item',
+                            plural: 'Items',
+                          },                          
+                          fields : [
+                            {
+                              type: "row",
+                              fields: [
+                                {
+                                  name: "subNavText",
+                                  label: "Label",
+                                  type: "text",
+                                  required: true,
+                                },        
+                                {
+                                  name: "subNavUrl",
+                                  label: "URL",
+                                  type: "text",
+                                  required: true,
+                                },        
+                              ],
+                            },
+                          ],
+                        }
+                      ],
+                      admin: {
+                        condition: (data, siblingData) => {
+                          if (siblingData.subNavEnabled) {
+                            return true;
+                          } else {
+                            return false;
+                          }
+                        },
+                      },                      
+                    },            
                   ],  
                 }
               ],
@@ -71,6 +121,56 @@ const Navigation: GlobalConfig = {
                       type: "text",
                       required: true,
                     },  
+                    {
+                      name: 'subNavEnabled',
+                      type: 'checkbox',
+                      label: 'Enable Sub Navigation',
+                      defaultValue: false,
+                    },  
+                    {
+                      type: 'row',
+                      fields: [
+                        {
+                          name: "subNav",
+                          label: "Secondary Navigation",
+                          type: "array",
+                          required: false,
+                          maxRows: 32,
+                          labels: {
+                            singular: 'Item',
+                            plural: 'Items',
+                          },                          
+                          fields : [
+                            {
+                              type: "row",
+                              fields: [
+                                {
+                                  name: "subNavText",
+                                  label: "Label",
+                                  type: "text",
+                                  required: true,
+                                },        
+                                {
+                                  name: "subNavUrl",
+                                  label: "URL",
+                                  type: "text",
+                                  required: true,
+                                },        
+                              ],
+                            },
+                          ],
+                        }
+                      ],
+                      admin: {
+                        condition: (data, siblingData) => {
+                          if (siblingData.subNavEnabled) {
+                            return true;
+                          } else {
+                            return false;
+                          }
+                        },
+                      },                      
+                    },                  
                   ],  
                 },
               ],
@@ -106,6 +206,56 @@ const Navigation: GlobalConfig = {
                       type: "text",
                       required: true,
                     },  
+                    {
+                      name: 'subNavEnabled',
+                      type: 'checkbox',
+                      label: 'Enable Sub Navigation',
+                      defaultValue: false,
+                    },  
+                    {
+                      type: 'row',
+                      fields: [
+                        {
+                          name: "subNav",
+                          label: "Secondary Navigation",
+                          type: "array",
+                          required: false,
+                          maxRows: 32,
+                          labels: {
+                            singular: 'Item',
+                            plural: 'Items',
+                          },                          
+                          fields : [
+                            {
+                              type: "row",
+                              fields: [
+                                {
+                                  name: "subNavText",
+                                  label: "Label",
+                                  type: "text",
+                                  required: true,
+                                },        
+                                {
+                                  name: "subNavUrl",
+                                  label: "URL",
+                                  type: "text",
+                                  required: true,
+                                },        
+                              ],
+                            },
+                          ],
+                        }
+                      ],
+                      admin: {
+                        condition: (data, siblingData) => {
+                          if (siblingData.subNavEnabled) {
+                            return true;
+                          } else {
+                            return false;
+                          }
+                        },
+                      },                      
+                    },
                   ],  
                 },
               ],
