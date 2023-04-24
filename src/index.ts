@@ -9,6 +9,7 @@ import Pages from './collections/Pages';
 import Rooms from './collections/Rooms';
 import GolfCourses from './collections/GolfCourses';
 import Properties from './collections/Properties';
+import Careers from './collections/Careers';
 
 // Globals
 import DeveloperSettings from './globals/DeveloperSettings';
@@ -24,13 +25,14 @@ const shaggleCore = (incomingShaggleConfig: ShaggleConfig) => (incomingConfig: C
 
     const collections = [
         ...incomingConfig?.collections || [],
+        Media,
         Pages,
         News,
-        Media,
         Attractions,            
         GolfCourses,
         Properties,
         Rooms,
+        Careers,
     ].filter(collection => {
         return !shagConfig.disableCollections?.includes(collection.slug);
     });

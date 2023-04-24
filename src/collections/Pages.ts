@@ -1,5 +1,13 @@
 import { CollectionConfig } from 'payload/types';
 
+import { DefaultSider } from '../blocks/sliders/DefaultSlider';
+import { DefaultContent } from '../blocks/content/DefaultContent';
+import { ThreeColumnGrid } from '../blocks/content/ThreeColumnGrid';
+import { TwoColumnWithImage } from '../blocks/content/TwoColumnWithImage';
+import { DefaultCTA } from '../blocks/cta/DefaultCTA';
+import { DefaultFAQs } from '../blocks/faqs/DefaultFAQs';
+import { DefaultGallery } from '../blocks/gallery/DefaultGallery';
+
 const Pages: CollectionConfig = {
 	slug: 'pages',
 	versions: true,
@@ -30,8 +38,14 @@ const Pages: CollectionConfig = {
                                 plural: 'Blocks',
                             },														
 							blocks: [ 
-								
-							]
+								DefaultSider,
+								DefaultContent,
+								ThreeColumnGrid,
+								TwoColumnWithImage,
+								DefaultCTA,
+								DefaultFAQs,
+								DefaultGallery,
+							],
 						},		
 					],
 				},

@@ -4,6 +4,9 @@
 
 A plugin for [Payload CMS](https://github.com/payloadcms/payload) to help speed up the development of websites for agencies with the goal of allowing installation within Vercel/Payload CMS Cloud hosting along with upcoming block library to keep all sites in sync with newest features and uniformity across agency sites.
 
+## Important Note
+`Version 1.x` is considered in active development; this release is considered part of the `Tabby` build and once we hit `Version 2.x` it'll be more battle tested and production ready.  While this goes against semantic versioning, this was an accident while initially being developed.
+
 ### Core features:
 
 ### Built In Standard Collections:
@@ -23,6 +26,8 @@ A plugin for [Payload CMS](https://github.com/payloadcms/payload) to help speed 
 - Rooms
 
 - Properties
+
+- Careers
 
 ### Built In Standard Globals:
 

@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2023-04-24
+
+### Added
+- `DefaultSlider` Block
+- `TwoColumnWithImage` Block
+- `DefaultCTA` Block
+- `ThreeColumnGrid` Block
+- `DefaultFAQs` Block
+- `content` Field to `News` Collection (versus only block layouts)
+- `DefaultGallery` Block
+- `DefaultContent` Block
+- `Careers` Collection
+
+### Changed
+- Minor Collection Order Change
+
+### Fixed
+- `Attractions` updated `useAsTitle` for `title`
+
 ## [1.2.0] - 2023-04-22
 
 ### Added

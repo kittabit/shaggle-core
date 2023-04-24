@@ -1,5 +1,13 @@
 import { CollectionConfig } from 'payload/types';
 
+import { DefaultSider } from '../blocks/sliders/DefaultSlider';
+import { DefaultContent } from '../blocks/content/DefaultContent';
+import { ThreeColumnGrid } from '../blocks/content/ThreeColumnGrid';
+import { TwoColumnWithImage } from '../blocks/content/TwoColumnWithImage';
+import { DefaultCTA } from '../blocks/cta/DefaultCTA';
+import { DefaultFAQs } from '../blocks/faqs/DefaultFAQs';
+import { DefaultGallery } from '../blocks/gallery/DefaultGallery';
+
 const News: CollectionConfig = {
 	slug: 'news',
 	versions: true,
@@ -20,16 +28,32 @@ const News: CollectionConfig = {
                     label: 'Post Content', 
                     fields: [ 
 						{
+                            name: 'content',
+                            label: "Page Content",
+                            type: 'richText',
+                        },
+						{
 							name: 'layout', 
 							label: 'Blocks',
 							type: 'blocks', 
+							admin: {
+								description: "If you'd like more control over your layout, you can add blocks versus using the rich text editor.",
+							},
 							minRows: 0,
 							maxRows: 20,
                             labels: {
                                 singular: 'Block',
                                 plural: 'Blocks',
                             },							
-							blocks: []
+							blocks: [
+								DefaultSider,
+								DefaultContent,
+								ThreeColumnGrid,
+								TwoColumnWithImage,
+								DefaultCTA,
+								DefaultFAQs,
+								DefaultGallery,
+							],
 						},				
 					],
 				},

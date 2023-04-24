@@ -3,6 +3,9 @@ import { CollectionConfig } from 'payload/types';
 const Attractions: CollectionConfig = {
 	slug: 'attractions',
 	versions: true,
+	admin: {
+        useAsTitle: 'title',
+    },
 	fields: [
 		{
 			name: 'title',
