@@ -39,13 +39,44 @@ const shaggleCore = (incomingShaggleConfig: ShaggleConfig) => (incomingConfig: C
 
     const config: Config = {
         ...incomingConfig,
-        collections,
+        collections: collections.map(collection => {
+            if (collection.slug === 'users') {
+                return collection;
+            }
+        
+            return {
+                ...collection,
+                access: {
+                    read: () => true,
+                },
+            };
+        }),
         globals: [
             ...incomingConfig?.globals || [],                        
-            GlobalSettings,
-            Navigation,
-            BookingEngineSettings,
-            DeveloperSettings,
+            {
+                ...GlobalSettings,
+                access: {
+                    read: () => true,
+                }
+            },
+            {
+                ...Navigation,
+                access: {
+                    read: () => true,
+                }
+            },
+            {
+                ...BookingEngineSettings,
+                access: {
+                    read: () => true,
+                }
+            },
+            {
+                ...DeveloperSettings,
+                access: {
+                    read: () => true,
+                }
+            },
         ],
     };
     

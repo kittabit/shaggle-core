@@ -128,6 +128,11 @@ const BookingEngineSettings: GlobalConfig = {
                 name: 'beFormSubmitButtonText',
                 label: "Submit Button Text",
             },
+            {
+                name: 'beFormBookNowUrl',
+                label: "Book Now URL",
+                type: 'text',
+            },
         ],
     }
   ],

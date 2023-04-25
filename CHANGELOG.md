@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2023-04-25
+
+### Added
+
+### Changed
+
+- REST API Access Control Updates
+- `Navigation` Global Updates
+- `GlobalSettings` Global Updates
+- `BookingEngine` Global Updates
+
+### Fixed
+
 ## [1.3.0] - 2023-04-24
 
 ### Added

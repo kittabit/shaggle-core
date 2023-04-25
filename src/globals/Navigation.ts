@@ -8,11 +8,11 @@ const Navigation: GlobalConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Main Menu', 
+          label: 'Header', 
           fields: [ 
             {
               name: "globalMainMenu",
-              label: "Main Menu",
+              label: "Header",
               type: "array",
               required: false,
               maxRows: 32,
@@ -70,6 +70,13 @@ const Navigation: GlobalConfig = {
                                   label: "URL",
                                   type: "text",
                                   required: true,
+                                },
+                                {
+                                  name: "subNavImage",
+                                  label: "Image",
+                                  type: 'upload',
+                                  relationTo: 'media',
+                                  required: false,
                                 },        
                               ],
                             },
@@ -93,11 +100,11 @@ const Navigation: GlobalConfig = {
           ],
         },
         {
-          label: 'Mobile Menu', 
+          label: 'Mobile', 
           fields: [ 
             {
               name: "globalMobileMenu",
-              label: "Mobile Menu",
+              label: "Mobile",
               type: "array",
               required: false,
               maxRows: 32,
@@ -178,85 +185,54 @@ const Navigation: GlobalConfig = {
           ],
         },
         {
-          label: 'Footer Menu', 
+          label: 'Footer', 
           fields: [ 
             {
-              name: "globalFooterMenu",
-              label: "Footer Menu",
+              name: "globalFooterColumns",
+              label: "Footer",
               type: "array",
               required: false,
-              maxRows: 32,
+              maxRows: 4,
               labels: {
-                singular: 'Navigation Item',
-                plural: 'Navigation Items',
+                singular: 'Column',
+                plural: 'Columns',                
               },              
               fields: [
                 {
-                  type: "row",
+                  name: "columnHeadline",
+                  label: "Headline",
+                  type: "text",
+                  required: false,
+                },        
+                {
+                  type: "array",
+                  name: "columnNav",
+                  label: "Column Navigation",
+                  required: false,
+                  maxRows: 4,
+                  labels: {
+                    singular: 'Navigation Item',
+                    plural: 'Navigation Items',
+                  },
                   fields: [
                     {
-                      name: "navText",
-                      label: "Label",
-                      type: "text",
-                      required: true,
-                    },        
-                    {
-                      name: "navUrl",
-                      label: "URL",
-                      type: "text",
-                      required: true,
-                    },  
-                    {
-                      name: 'subNavEnabled',
-                      type: 'checkbox',
-                      label: 'Enable Sub Navigation',
-                      defaultValue: false,
-                    },  
-                    {
-                      type: 'row',
+                      type: "row",
                       fields: [
                         {
-                          name: "subNav",
-                          label: "Secondary Navigation",
-                          type: "array",
-                          required: false,
-                          maxRows: 32,
-                          labels: {
-                            singular: 'Item',
-                            plural: 'Items',
-                          },                          
-                          fields : [
-                            {
-                              type: "row",
-                              fields: [
-                                {
-                                  name: "subNavText",
-                                  label: "Label",
-                                  type: "text",
-                                  required: true,
-                                },        
-                                {
-                                  name: "subNavUrl",
-                                  label: "URL",
-                                  type: "text",
-                                  required: true,
-                                },        
-                              ],
-                            },
-                          ],
-                        }
+                          name: "navText",
+                          label: "Label",
+                          type: "text",
+                          required: true,
+                        },        
+                        {
+                          name: "navUrl",
+                          label: "URL",
+                          type: "text",
+                          required: true,
+                        },  
                       ],
-                      admin: {
-                        condition: (data, siblingData) => {
-                          if (siblingData.subNavEnabled) {
-                            return true;
-                          } else {
-                            return false;
-                          }
-                        },
-                      },                      
                     },
-                  ],  
+                  ],
                 },
               ],
             }, 

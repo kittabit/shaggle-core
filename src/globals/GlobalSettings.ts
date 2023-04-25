@@ -28,6 +28,12 @@ const GlobalSettings: GlobalConfig = {
               type: 'upload',
               relationTo: 'media',
               required: false,
+            },
+            {
+              name: 'siteFooterCopyrightText',
+              label: "Copyright Text",
+              type: 'textarea',
+              required: false,
             },            
           ],
         },
@@ -66,7 +72,53 @@ const GlobalSettings: GlobalConfig = {
               required: false,
             },
           ],
-        },        
+        },  
+        {
+          label: 'Social', 
+          fields: [ 
+            {
+              type: "row",
+              fields: [
+                {
+                  name: 'socialTwitter',
+                  label: "Twitter URL",
+                  type: 'text',
+                  required: false,
+                  admin: {
+                    width: '50%',
+                  },
+                },
+                {
+                  name: 'socialFacebook',
+                  label: "Facebook URL",
+                  type: 'text',
+                  required: false,
+                  admin: {
+                    width: '50%',
+                  },
+                },
+                {
+                  name: 'socialInstagram',
+                  label: "Instagram URL",
+                  type: 'text',
+                  required: false,
+                  admin: {
+                    width: '50%',
+                  },
+                },
+                {
+                  name: 'socialLinkedin',
+                  label: "LinkedIn URL",
+                  type: 'text',
+                  required: false,
+                  admin: {
+                    width: '50%',
+                  },
+                },
+              ],
+            },
+          ],
+        },      
       ]
     },           
   ],
